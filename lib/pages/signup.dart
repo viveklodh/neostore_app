@@ -4,8 +4,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:neostore_app/networkApi/network.dart';
 import 'package:neostore_app/pages/login.dart';
-import 'package:neostore_app/network/network.dart';
 
 import '../model/registerModel/registerErrorModel.dart';
 import '../model/registerModel/registerModel.dart';
@@ -515,7 +515,6 @@ Widget registerButton(){
                           
 
                         }
-
 
                         
                       }on DioError catch (e) {

@@ -30,76 +30,79 @@ class _HomePageState extends State<HomePage> {
           actions: [Icon(Icons.search)],
           backgroundColor: Colors.red,
           title: Text('NeoSTORE')),
-      body: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[
-          SizedBox(height: 20),
-          CarouselSlider(
-            options: CarouselOptions(
-              height: 200.0,
-              autoPlay: true,
-              autoPlayInterval: Duration(seconds: 3),
-              autoPlayAnimationDuration: Duration(milliseconds: 800),
-              autoPlayCurve: Curves.fastOutSlowIn,
-              pauseAutoPlayOnTouch: true,
-              aspectRatio: 2.0,
-              onPageChanged: (index, reason) {
-                setState(() {
-                  _currentIndex = index;
+      body: Container(
+        child: Column(
+         // crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(height: 20),
+            CarouselSlider(
+              options: CarouselOptions(
+                height: 200.0,
+                autoPlay: true,
+                autoPlayInterval: Duration(seconds: 3),
+                autoPlayAnimationDuration: Duration(milliseconds: 800),
+                autoPlayCurve: Curves.fastOutSlowIn,
+                pauseAutoPlayOnTouch: true,
+                aspectRatio: 2.0,
+                onPageChanged: (index, reason) {
+                  setState(() {
+                    _currentIndex = index;
+                  });
+                },
+              ),
+              items: cardList.map((card) {
+                return Builder(builder: (BuildContext context) {
+                  return Container(
+                    height: MediaQuery.of(context).size.height * 0.30,
+                    width: MediaQuery.of(context).size.width,
+                    child: Card(
+                      color: Colors.blueAccent,
+                      child: card,
+                    ),
+                  );
                 });
-              },
+              }).toList(),
             ),
-            items: cardList.map((card) {
-              return Builder(builder: (BuildContext context) {
+            SizedBox(height: 20),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: map<Widget>(cardList, (index, url) {
                 return Container(
-                  height: MediaQuery.of(context).size.height * 0.30,
-                  width: MediaQuery.of(context).size.width,
-                  child: Card(
-                    color: Colors.blueAccent,
-                    child: card,
+                  width: 10.0,
+                  height: 10.0,
+                  margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
+                  decoration: BoxDecoration(
+                    shape: BoxShape.circle,
+                    color:
+                        _currentIndex == index ? Colors.blueAccent : Colors.grey,
                   ),
                 );
-              });
-            }).toList(),
-          ),
-          SizedBox(height: 20),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: map<Widget>(cardList, (index, url) {
-              return Container(
-                width: 10.0,
-                height: 10.0,
-                margin: EdgeInsets.symmetric(vertical: 10.0, horizontal: 2.0),
-                decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  color:
-                      _currentIndex == index ? Colors.blueAccent : Colors.grey,
-                ),
-              );
-            }),
-          ),
-          SizedBox(height: 10),
-          Flexible(
-            child: Padding(
-              padding: EdgeInsets.all(1),
+              }),
+            ),
+            SizedBox(height: 10),
+            Flexible(
               child: Container(
                 // height: MediaQuery.of(context).size.height,
                 //width: MediaQuery.of(context).size.width,
-                child: GridView.count(
-                  mainAxisSpacing: 8,
-                  crossAxisSpacing: 8,
-                  crossAxisCount: 2,
-                  children: <Widget>[
-                    tableGrid(),
-                    chairGrid(),
-                    cubGrid(),
-                    sofaGrid(),
-                  ],
-                ),
+                child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: GridView.count(
+                      mainAxisSpacing: 5,
+                      crossAxisSpacing: 5,
+                      crossAxisCount: 2,
+                      children: <Widget>[
+                        tableGrid(),
+                        chairGrid(),
+                        cubGrid(),
+                        sofaGrid(),
+                      ],
+                    ),
+                  ),
               ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
 
       drawer: NeoDrawer(),
@@ -216,7 +219,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'cupboards',
+                    'Beds',
                     style: TextStyle(
                         color: Colors.white,
                         fontWeight: FontWeight.bold,

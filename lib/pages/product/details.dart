@@ -1,9 +1,8 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-//import 'package:neostore_app/model/productListModel/ResponseProduct.dart';
 import 'package:neostore_app/model/productsDetailsModel/DetailsModel.dart';
-import 'package:neostore_app/network/network.dart';
+import 'package:neostore_app/networkApi/network.dart';
 import 'package:rating_dialog/rating_dialog.dart';
 
 class Details extends StatefulWidget {
@@ -143,7 +142,7 @@ class _DetailsState extends State<Details> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     Text(
-                      '${list.cost}',
+                      'Rs. ${list.cost}',
                       style: TextStyle(color: Colors.red, fontSize: 25),
                     ),
                     Icon(
@@ -166,7 +165,7 @@ class _DetailsState extends State<Details> {
                     child: Image(
                       width: 300,
                       image:
-                          NetworkImage(list.productImages[0].image),
+                          NetworkImage(list.productImages[selectedIndex].image),
                       fit: BoxFit.contain,
                     ),
                   ),
@@ -201,7 +200,7 @@ class _DetailsState extends State<Details> {
                               height: 80,
                               width: 80,
                               image:
-                                  NetworkImage(list.productImages[0].image),
+                                NetworkImage(list.productImages[index].image),
                               fit: BoxFit.fill,
                             ),
                           ),

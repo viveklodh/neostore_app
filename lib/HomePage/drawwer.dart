@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:neostore_app/pages/login.dart';
+import 'package:neostore_app/pages/product/productslistView.dart';
+import 'package:neostore_app/progress.dart';
 
 class NeoDrawer extends StatelessWidget {
   @override
@@ -15,13 +18,13 @@ class NeoDrawer extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     CircleAvatar(
-                      //backgroundImage: AssetImage('images/.jpg'),
+                      backgroundImage: NetworkImage('https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKBxFgumtyI8kBb1RvhSfyqrqahJsu2XUScw&usqp=CAU'),
                       radius: 60.0,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: Text(
-                        "vk",
+                       'vivek',
                         style: TextStyle(
                             color: Colors.white,
                             fontSize: 25,
@@ -61,65 +64,93 @@ class NeoDrawer extends StatelessWidget {
             // ),
             SizedBox(height: 5),
             Card(
+            
               color: Colors.grey[900],
               elevation: 10,
-              child: ListTile(
-                leading: Icon(Icons.add_shopping_cart, color: Colors.white),
-                title: Text(
-                  'My Cart',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
+              child: InkWell(
+                onTap:() {
+                   Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Progress()));
+                },
+                              child: ListTile(
+                  leading: Icon(Icons.add_shopping_cart, color: Colors.white),
+                  title: Text(
+                    'My Cart',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  // subtitle: Text(''),
+                  trailing: Icon(Icons.arrow_forward, color: Colors.white),
                 ),
-                // subtitle: Text(''),
-                trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
             ),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
-              child: ListTile(
-                leading: Image.asset(
-                  "images/tableIcon.png",
-                  height: 20,
+              child: InkWell(
+                 onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TablesListView(id: 1)));
+        },
+                              child: ListTile(
+                  leading: Image.asset(
+                    "images/tableIcon.png",
+                    height: 20,
+                  ),
+                  title: Text(
+                    'Tables',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  //, subtitle: Text('lets meet on fb'),
+                  trailing: Icon(Icons.arrow_forward, color: Colors.white),
                 ),
-                title: Text(
-                  'Tables',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-                //, subtitle: Text('lets meet on fb'),
-                trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
             ),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
-              child: ListTile(
-                leading: Image.asset(
-                  "images/cubIcon.png",
-                  height: 20,
+              
+              child: InkWell(
+                
+                 onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TablesListView(id:4)));
+        },
+                              child: ListTile(
+                  leading: Image.asset(
+                    "images/cubIcon.png",
+                    height: 20,
+                  ),
+                  title: Text(
+                    'Beds',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontWeight: FontWeight.bold,
+                        fontSize: 20),
+                  ),
+                  //, subtitle: Text('lets meet on fb'),
+                  trailing: Icon(Icons.arrow_forward, color: Colors.white),
                 ),
-                title: Text(
-                  'Cupboards',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontWeight: FontWeight.bold,
-                      fontSize: 20),
-                ),
-                //, subtitle: Text('lets meet on fb'),
-                trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
             ),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                
+                 onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TablesListView(id: 2)));
+        },
+               
               child: ListTile(
                 leading: Image.asset(
                   "images/chairIcon.png",
@@ -135,11 +166,18 @@ class NeoDrawer extends StatelessWidget {
                 //, subtitle: Text('lets meet on fb'),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                
+                 onTap: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => TablesListView(id: 3)));
+        },
+               
               child: ListTile(
                 leading: Image.asset(
                   "images/sofaIcon.png",
@@ -155,11 +193,17 @@ class NeoDrawer extends StatelessWidget {
                 //, subtitle: Text('lets meet on fb'),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                onTap:() {
+                   Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Progress()));
+                },
+                     
               child: ListTile(
                 leading: Icon(Icons.person, color: Colors.white),
                 title: Text(
@@ -172,11 +216,17 @@ class NeoDrawer extends StatelessWidget {
                 // subtitle: Text(''),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
             SizedBox(height: 5),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                onTap:() {
+                   Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Progress()));
+                },
+                     
               child: ListTile(
                 leading: Icon(Icons.my_location, color: Colors.white),
                 title: Text(
@@ -189,10 +239,16 @@ class NeoDrawer extends StatelessWidget {
                 // subtitle: Text(''),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                onTap:() {
+                   Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => Progress()));
+                },
+                     
               child: ListTile(
                 leading: Icon(Icons.notes, color: Colors.white),
                 title: Text(
@@ -205,10 +261,16 @@ class NeoDrawer extends StatelessWidget {
                 // subtitle: Text(''),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
             Card(
               color: Colors.grey[900],
               elevation: 10,
+               child: InkWell(
+                onTap:() {
+                   Navigator.push(
+                    context, MaterialPageRoute(builder: (context) => LoginDemo()));
+                },
+                     
               child: ListTile(
                 leading: Icon(Icons.logout, color: Colors.white),
                 title: Text(
@@ -221,7 +283,7 @@ class NeoDrawer extends StatelessWidget {
                 // subtitle: Text(''),
                 trailing: Icon(Icons.arrow_forward, color: Colors.white),
               ),
-            ),
+            ),),
           ],
         ),
       ),

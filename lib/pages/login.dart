@@ -5,7 +5,7 @@ import 'package:neostore_app/HomePage/HomePage.dart';
 import 'package:neostore_app/model/loginModel/loginErrorModel.dart';
 import 'package:neostore_app/model/loginModel/loginModel.dart';
 import 'package:neostore_app/model/loginModel/loginRequestModel.dart';
-import 'package:neostore_app/network/network.dart';
+import 'package:neostore_app/networkApi/network.dart';
 import 'package:neostore_app/pages/signup.dart';
 
 import 'forget.dart';
