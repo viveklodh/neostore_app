@@ -2,9 +2,8 @@ import 'dart:convert';
 
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
+import 'package:neostore_app/PAGES/loginPage.dart';
 import 'package:neostore_app/networkApi/network.dart';
-import 'package:neostore_app/pages/login.dart';
-
 import '../model/registerModel/registerErrorModel.dart';
 import '../model/registerModel/registerModel.dart';
 import '../model/registerModel/registerRequestModel.dart';

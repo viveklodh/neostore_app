@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:neostore_app/PAGES/productDetails.dart';
 import 'package:neostore_app/model/productListModel/ResponseProduct.dart';
 import 'package:neostore_app/networkApi/network.dart';
-import 'package:neostore_app/pages/product/details.dart';
 
 class TablesListView extends StatefulWidget {
   final int id;
@@ -18,6 +18,7 @@ class _TablesListViewState extends State<TablesListView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+         actions: [Icon(Icons.search)],
         backgroundColor: Colors.red,
         title: Text('Products'),
       ),

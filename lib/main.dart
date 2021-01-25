@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:neostore_app/pages/login.dart';
-
+import 'package:neostore_app/PAGES/loginPage.dart';
 void main() {
   runApp(MyApp()
   
@@ -15,7 +14,7 @@ class MyApp extends StatelessWidget {
 
       // Define the default brightness and colors.
       // brightness: Brightness.dark),
-      //debugShowCheckedModeBanner: false,     
+      //debugShowCheckedModeBanner: true,     
      // home:HomePage(),
 
     home: LoginDemo(),

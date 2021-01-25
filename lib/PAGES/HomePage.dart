@@ -1,8 +1,8 @@
 
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:neostore_app/pages/HomePage/drawwer.dart';
-import 'package:neostore_app/pages/product/productslistView.dart';
+import 'package:neostore_app/PAGES/drawwer.dart';
+import 'package:neostore_app/PAGES/productTableView.dart';
 
 class HomePage extends StatefulWidget {
   @override
