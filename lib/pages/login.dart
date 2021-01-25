@@ -1,14 +1,15 @@
 import 'dart:convert';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
-import 'package:neostore_app/HomePage/HomePage.dart';
+
 import 'package:neostore_app/model/loginModel/loginErrorModel.dart';
 import 'package:neostore_app/model/loginModel/loginModel.dart';
 import 'package:neostore_app/model/loginModel/loginRequestModel.dart';
 import 'package:neostore_app/networkApi/network.dart';
+import 'package:neostore_app/pages/HomePage/HomePage.dart';
 import 'package:neostore_app/pages/signup.dart';
 
-import 'forget.dart';
+import 'resetPassword.dart';
 
 class LoginDemo extends StatefulWidget {
   @override
@@ -16,6 +17,7 @@ class LoginDemo extends StatefulWidget {
 }
 
   class _LoginDemoState extends State<LoginDemo> {
+    bool hidePassword = true;
   TextEditingController emailController = TextEditingController();
   TextEditingController passwordController = TextEditingController();
 
@@ -144,9 +146,11 @@ Widget password() {
                 padding: const EdgeInsets.only(
                     left: 15.0, right: 15.0, top: 15, bottom: 0),
                 //padding: EdgeInsets.symmetric(horizontal: 15),
-                child: TextFormField(
+                child:
+                
+                 TextFormField(
                   controller: passwordController,
-                  obscureText: true,
+                 obscureText: hidePassword,
                  decoration: InputDecoration(
    //filled: true,
    //fillColor: Color(0xFFF2F2F2),
@@ -189,6 +193,17 @@ Widget password() {
                       Icons.lock,
                       color: Colors.white,
                     ),
+                       suffixIcon: IconButton(
+              onPressed: () {
+                setState(() {
+                  hidePassword = !hidePassword;
+                });
+              },
+              icon: Icon(
+                hidePassword ? Icons.visibility_off : Icons.visibility,
+                color: Colors.white,
+              ),
+            ),
                     labelStyle: new TextStyle(
                       color: const Color(0xFFFFFFFF),
                     ),
@@ -252,7 +267,7 @@ Widget forgetButton(){
   return  FlatButton(
                 onPressed: () {
                   Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => ForgotPassword()));
+                      MaterialPageRoute(builder: (_) => ResetPassword()));
                 },
                 child: Text(
                   'Forgot Password ?',
@@ -262,17 +277,38 @@ Widget forgetButton(){
 }
 
 Widget createNewAccountButton(){
-  return  FlatButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (_) => SignUp()));
-                },
-                child: Text(
-                  'New User? Create new account',
-                  style: TextStyle(color: Colors.white, fontSize: 17),
-                ),
-              );
-}
+   return  Padding(
+      padding: EdgeInsets.only(top: 14.0),
+      child: Container(
+        child: RichText(
+          text: TextSpan(
+              text: 'DONT HAVE AN ACCOUNT ?',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold),
+              children: [
+                WidgetSpan(
+                  child: IconButton(
+                    icon: Icon(
+                      Icons.add,
+                      color: Colors.white,
+                      size: 55.0,
+                    ),
+                    onPressed: () {
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SignUp()));
+                    },
+                  ),
+                )
+              ]),
+        ),
+      ),
+    );
+ 
 
 
 }
+  }

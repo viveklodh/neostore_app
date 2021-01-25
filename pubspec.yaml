@@ -26,6 +26,13 @@ dependencies:
   carousel_slider: ^2.3.1
   rating_dialog: ^1.0.0
   flutter_rating_bar: ^3.2.0+1
+  flutter_native_splash: ^0.2.7
+
+flutter_native_splash:
+  color: "#42a5f5"  # required parameter
+  image: images/NeoSOFT.png  # optional parameter
+  color_dark: "#042a49"  # required if image_dark parameter is used
+  image_dark: images/NeoSOFT.png 
 
 
 
